@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────── */
+:root {
+  /* Light mode defaults */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-surface: rgba(0, 0, 0, 0.03);
+  --bg-surface-hover: rgba(0, 0, 0, 0.06);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --text-primary: #1a1a2e;
+  --text-secondary: #57606a;
+  --text-muted: #8b949e;
+  --accent-blue: #0078d4;
+  --accent-cyan: #50e6ff;
+  --shadow-glass: 0 4px 16px rgba(0,0,0,0.08);
+  --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,120,212,0.08), transparent);
+  --grid-color: rgba(0,0,0,0.04);
+}
+
+.dark {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0d1117;
+  --bg-surface: rgba(255, 255, 255, 0.04);
+  --bg-surface-hover: rgba(255, 255, 255, 0.07);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --accent-blue: #0078d4;
+  --accent-cyan: #50e6ff;
+  --shadow-glass: 0 4px 16px rgba(0,0,0,0.3);
+  --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,120,212,0.18), transparent);
+  --grid-color: rgba(255,255,255,0.03);
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.7;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 120, 212, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 120, 212, 0.7);
+}
+
+/* ─── Utilities ─────────────────────────────────────── */
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #0078d4 0%, #50e6ff 100%);
+  }
+
+  .glass {
+    background: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+  }
+
+  .glass-strong {
+    background: var(--bg-surface-hover);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-color);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-azure-500 focus:ring-offset-2 focus:ring-offset-transparent;
+  }
+
+  /* Hero grid background */
+  .hero-grid {
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Glow effect for accent elements */
+  .glow-azure {
+    box-shadow: 0 0 20px rgba(0, 120, 212, 0.3), 0 0 40px rgba(0, 120, 212, 0.1);
+  }
+
+  /* Timeline connector */
+  .timeline-line {
+    @apply absolute left-4 top-8 bottom-0 w-px bg-gradient-to-b from-azure-500 to-transparent;
+  }
+}
+
+/* ─── Component Styles ──────────────────────────────── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white
+           transition-all duration-200 focus-ring;
+    background: linear-gradient(135deg, #0078d4, #0056a0);
+    box-shadow: 0 4px 14px rgba(0, 120, 212, 0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(0, 120, 212, 0.45);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+           glass border transition-all duration-200 focus-ring;
+    color: var(--text-primary);
+  }
+  .btn-ghost:hover {
+    background: var(--bg-surface-hover);
+    border-color: rgba(0, 120, 212, 0.4);
+  }
+
+  .skill-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           transition-all duration-200 cursor-default;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+  .skill-badge:hover {
+    border-color: rgba(0, 120, 212, 0.5);
+    color: var(--accent-blue);
+    background: rgba(0, 120, 212, 0.08);
+  }
+}
+
+/* ─── Section Animations ────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mariyan-marinov.github.io/mariyan-marinov-cv/sitemap.xml

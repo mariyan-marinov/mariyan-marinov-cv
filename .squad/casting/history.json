@@ -1,0 +1,22 @@
+{
+  "universe_usage_history": [
+    {
+      "universe": "Ocean's Eleven",
+      "assignment_id": "mariyan-marinov-cv-2026-07-01",
+      "used_at": "2026-07-01T18:11:23Z"
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "mariyan-marinov-cv-2026-07-01": {
+      "universe": "Ocean's Eleven",
+      "agents": {
+        "tech-lead": "Rusty",
+        "frontend-dev": "Linus",
+        "ui-designer": "Basher",
+        "devops-engineer": "Livingston",
+        "content-strategist": "Saul"
+      },
+      "created_at": "2026-07-01T18:11:23Z"
+    }
+  }
+}
