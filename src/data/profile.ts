@@ -20,7 +20,7 @@ Deep expertise in .NET (C# / ASP.NET Core), full-stack TypeScript/Angular/React,
   },
   location: 'Sofia, Bulgaria',
   availability:
-    'Available for senior engineering, architecture consulting, and AI engineering engagements.',
+    'Open to the right projects — great teams, hard problems, real impact.',
   cvFile: '/cv/mariyan-marinov-cv.docx',
   heroChips: [
     '14+ Years',

@@ -6,7 +6,6 @@ import { ProjectsSection } from '@/components/sections/ProjectsSection'
 import { ExperienceSection } from '@/components/sections/ExperienceSection'
 import { LeadershipSection } from '@/components/sections/LeadershipSection'
 import { CertificationsSection } from '@/components/sections/CertificationsSection'
-import { TechRadarSection } from '@/components/sections/TechRadarSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function HomePage() {
@@ -20,7 +19,6 @@ export default function HomePage() {
       <ExperienceSection />
       <LeadershipSection />
       <CertificationsSection />
-      <TechRadarSection />
       <ContactSection />
     </>
   )

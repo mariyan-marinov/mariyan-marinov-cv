@@ -93,7 +93,7 @@ export function CertificationsSection() {
                     <GlassCard hover glow className="h-full flex flex-col gap-3">
                       {/* Badge */}
                       <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center text-xs font-bold flex-shrink-0"
+                        className="h-10 px-3 min-w-[3rem] w-fit rounded-xl flex items-center justify-center text-xs font-bold flex-shrink-0 whitespace-nowrap"
                         style={{
                           background: issuerColors[cert.issuer] ?? 'rgba(0,120,212,0.1)',
                           border: `1px solid ${issuerBorders[cert.issuer] ?? 'rgba(0,120,212,0.2)'}`,

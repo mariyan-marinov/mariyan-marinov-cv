@@ -12,7 +12,6 @@ const navLinks = [
   { href: '/#expertise',   label: 'Expertise' },
   { href: '/#projects',    label: 'Projects' },
   { href: '/#experience',  label: 'Experience' },
-  { href: '/#tech-radar',  label: 'Tech Radar' },
   { href: '/contact',      label: 'Contact' },
 ]
 

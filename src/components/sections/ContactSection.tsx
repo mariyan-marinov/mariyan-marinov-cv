@@ -128,7 +128,7 @@ export function ContactSection() {
               >
                 {profile.contact.email}
               </a>{' '}
-              and I&apos;ll respond within 24 hours.
+              and I&apos;ll respond asap.
             </p>
             <a
               href={`mailto:${profile.contact.email}?subject=Let's connect — senior engineering opportunity`}
