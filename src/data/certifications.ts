@@ -2,45 +2,53 @@ export interface Certification {
   id: string
   name: string
   issuer: string
-  year: number
-  badge?: string
+  year?: number
+  badge: string
+  category: 'cloud' | 'methodology' | 'skills'
   credentialUrl?: string
 }
 
 export const certifications: Certification[] = [
   {
-    id: 'az-305',
-    name: 'Microsoft Certified: Azure Solutions Architect Expert',
-    issuer: 'Microsoft',
-    year: 2023,
-    badge: 'AZ-305',
-  },
-  {
-    id: 'az-204',
-    name: 'Microsoft Certified: Azure Developer Associate',
-    issuer: 'Microsoft',
-    year: 2022,
-    badge: 'AZ-204',
-  },
-  {
-    id: 'az-400',
-    name: 'Microsoft Certified: DevOps Engineer Expert',
-    issuer: 'Microsoft',
-    year: 2022,
-    badge: 'AZ-400',
-  },
-  {
-    id: 'aws-saa',
-    name: 'AWS Certified Solutions Architect – Associate',
+    id: 'aws-developer',
+    name: 'AWS Certified Developer – Associate',
     issuer: 'Amazon Web Services',
-    year: 2021,
-    badge: 'SAA-C03',
+    badge: 'AWS-DEV',
+    category: 'cloud',
   },
   {
-    id: 'ckad',
-    name: 'Certified Kubernetes Application Developer',
-    issuer: 'CNCF / Linux Foundation',
-    year: 2021,
-    badge: 'CKAD',
+    id: 'aws-practitioner',
+    name: 'AWS Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    badge: 'AWS-CP',
+    category: 'cloud',
+  },
+  {
+    id: 'aws-technical',
+    name: 'AWS Technical Accreditation',
+    issuer: 'Amazon Web Services',
+    badge: 'AWS-TA',
+    category: 'cloud',
+  },
+  {
+    id: 'scrum-master',
+    name: 'Certified Scrum Master',
+    issuer: 'Scrum Alliance',
+    badge: 'CSM',
+    category: 'methodology',
+  },
+  {
+    id: 'hackerrank-sql',
+    name: 'SQL (Advanced)',
+    issuer: 'HackerRank',
+    badge: 'HR-SQL',
+    category: 'skills',
+  },
+  {
+    id: 'hackerrank-problem-solving',
+    name: 'Problem Solving',
+    issuer: 'HackerRank',
+    badge: 'HR-PS',
+    category: 'skills',
   },
 ]

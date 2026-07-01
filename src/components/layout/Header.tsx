@@ -8,11 +8,12 @@ import { profile } from '@/data/profile'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/#about',          label: 'About' },
-  { href: '/#skills',         label: 'Skills' },
-  { href: '/#experience',     label: 'Experience' },
-  { href: '/#education',      label: 'Education' },
-  { href: '/contact',         label: 'Contact' },
+  { href: '/#about',       label: 'About' },
+  { href: '/#expertise',   label: 'Expertise' },
+  { href: '/#projects',    label: 'Projects' },
+  { href: '/#experience',  label: 'Experience' },
+  { href: '/#tech-radar',  label: 'Tech Radar' },
+  { href: '/contact',      label: 'Contact' },
 ]
 
 export function Header() {

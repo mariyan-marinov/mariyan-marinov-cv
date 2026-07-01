@@ -54,12 +54,33 @@ export function ContactSection() {
       <div className="container-narrow">
         <AnimatedSection className="text-center mb-12">
           <SectionHeading
-            eyebrow="Get in Touch"
+            eyebrow="Contact"
             title="Let's Build Something Great"
             subtitle={profile.availability}
             centered
             id="contact-heading"
           />
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-8">
+          <div className="flex flex-wrap justify-center gap-2" role="list" aria-label="Available for">
+            {[
+              'Software Development',
+              'Architecture Consulting',
+              'Cloud Transformation',
+              'Enterprise Modernization',
+              'Technical Leadership',
+              'AI Engineering Initiatives',
+            ].map((item) => (
+              <span
+                key={item}
+                role="listitem"
+                className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold glass border border-[var(--border-color)] text-[var(--text-secondary)]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">

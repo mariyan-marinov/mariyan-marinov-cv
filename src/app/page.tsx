@@ -1,24 +1,26 @@
 import { HeroSection } from '@/components/sections/HeroSection'
-import { SummarySection } from '@/components/sections/SummarySection'
-import { CompetenciesSection } from '@/components/sections/CompetenciesSection'
-import { SkillsSection } from '@/components/sections/SkillsSection'
+import { ImpactSection } from '@/components/sections/ImpactSection'
+import { AboutSection } from '@/components/sections/AboutSection'
+import { ExpertiseSection } from '@/components/sections/ExpertiseSection'
+import { ProjectsSection } from '@/components/sections/ProjectsSection'
 import { ExperienceSection } from '@/components/sections/ExperienceSection'
-import { EducationSection } from '@/components/sections/EducationSection'
+import { LeadershipSection } from '@/components/sections/LeadershipSection'
 import { CertificationsSection } from '@/components/sections/CertificationsSection'
-import { LanguagesSection } from '@/components/sections/LanguagesSection'
+import { TechRadarSection } from '@/components/sections/TechRadarSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <SummarySection />
-      <CompetenciesSection />
-      <SkillsSection />
+      <ImpactSection />
+      <AboutSection />
+      <ExpertiseSection />
+      <ProjectsSection />
       <ExperienceSection />
-      <EducationSection />
+      <LeadershipSection />
       <CertificationsSection />
-      <LanguagesSection />
+      <TechRadarSection />
       <ContactSection />
     </>
   )

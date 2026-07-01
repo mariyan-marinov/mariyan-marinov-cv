@@ -86,11 +86,7 @@ export function HeroSection() {
           transition={{ delay: 0.2, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-lg sm:text-xl md:text-2xl font-medium text-[var(--text-secondary)] mb-4 tracking-wide"
         >
-          {profile.title}
-          <span className="mx-3 text-[var(--border-color)]" aria-hidden="true">·</span>
-          {profile.roles[0]}
-          <span className="mx-3 text-[var(--border-color)]" aria-hidden="true">·</span>
-          {profile.roles[1]}
+          {profile.title.split(' | ').join(' · ')}
         </motion.p>
 
         {/* Tagline */}
@@ -134,6 +130,13 @@ export function HeroSection() {
             </svg>
             Download CV
           </a>
+          <Link
+            href="/contact"
+            className="btn-secondary"
+            aria-label="Contact me"
+          >
+            Contact Me
+          </Link>
         </motion.div>
 
         {/* Tech chips */}

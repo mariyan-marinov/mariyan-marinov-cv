@@ -157,6 +157,22 @@ body {
     border-color: rgba(0, 120, 212, 0.4);
   }
 
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+           transition-all duration-200 focus-ring;
+    color: #0078d4;
+    border: 1px solid rgba(0, 120, 212, 0.5);
+    background: rgba(0, 120, 212, 0.08);
+  }
+  .btn-secondary:hover {
+    background: rgba(0, 120, 212, 0.15);
+    border-color: rgba(0, 120, 212, 0.7);
+    transform: translateY(-1px);
+  }
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
+
   .skill-badge {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
            transition-all duration-200 cursor-default;

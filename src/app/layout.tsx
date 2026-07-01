@@ -15,14 +15,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mariyan-marinov.github.io/mariyan-marinov-cv'),
   title: {
-    default: 'Mariyan Marinov — Senior .NET Full Stack Engineer & Technical Lead',
+    default: 'Mariyan Marinov — Senior Software Engineer | Tech Lead | AI Engineer',
     template: '%s | Mariyan Marinov',
   },
   description:
-    'Senior .NET Full Stack Engineer and Technical Lead with 14+ years building enterprise software, cloud platforms on Azure & AWS, distributed systems, and AI-assisted engineering solutions.',
+    'Senior Software Engineer and Technical Lead with 14+ years building enterprise software, cloud platforms on Azure & AWS, distributed systems, and AI-assisted engineering solutions.',
   keywords: [
-    'Senior .NET Engineer',
-    'Full Stack Developer',
+    'Senior Software Engineer',
+    'Tech Lead',
+    'AI Engineer',
     'Technical Lead',
     'C#',
     'ASP.NET Core',
@@ -76,7 +77,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Mariyan Marinov',
-  jobTitle: 'Senior .NET Full Stack Engineer & Technical Lead',
+  jobTitle: 'Senior Software Engineer | Tech Lead | AI Engineer',
   description:
     'Senior .NET Full Stack Engineer and Technical Lead with 14+ years of experience in enterprise software, cloud platforms, and AI-assisted engineering.',
   url: 'https://mariyan-marinov.github.io/mariyan-marinov-cv/',
