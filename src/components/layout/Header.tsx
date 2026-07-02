@@ -2,28 +2,72 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { profile } from '@/data/profile'
 import { cn, assetPath } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/#about',       label: 'About' },
-  { href: '/#expertise',   label: 'Expertise' },
-  { href: '/#projects',    label: 'Projects' },
-  { href: '/#experience',  label: 'Experience' },
-  { href: '/contact',      label: 'Contact' },
+  { href: '/#about',       label: 'About',      sectionId: 'about' },
+  { href: '/#expertise',   label: 'Expertise',  sectionId: 'expertise' },
+  { href: '/#projects',    label: 'Projects',   sectionId: 'projects' },
+  { href: '/#experience',  label: 'Experience', sectionId: 'experience' },
+  { href: '/contact',      label: 'Contact',    sectionId: 'contact' },
 ]
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Scroll-position based active section — reliable in both directions
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection(null)
+      return
+    }
+
+    const sectionIds = navLinks.map((l) => l.sectionId).filter(Boolean) as string[]
+
+    const update = () => {
+      const scrollBottom = window.scrollY + window.innerHeight
+      const docHeight = document.documentElement.scrollHeight
+
+      // Near bottom of page → always activate last section
+      if (scrollBottom >= docHeight - 80) {
+        setActiveSection(sectionIds[sectionIds.length - 1])
+        return
+      }
+
+      const threshold = window.scrollY + window.innerHeight * 0.45
+      let current: string | null = null
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        if (el.getBoundingClientRect().top + window.scrollY <= threshold) {
+          current = id
+        }
+      }
+      setActiveSection(current)
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [pathname])
+
+  const isActive = (link: typeof navLinks[0]) => {
+    if (pathname === '/contact') return link.href === '/contact'
+    return activeSection === link.sectionId
+  }
 
   return (
     <motion.header
@@ -68,7 +112,12 @@ export function Header() {
               >
                 <Link
                   href={link.href}
-                  className="px-3 py-2 rounded-lg text-base font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] transition-all duration-150 focus-ring"
+                  className={cn(
+                    'px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 focus-ring',
+                    isActive(link)
+                      ? 'text-[var(--text-primary)] bg-[rgba(0,120,212,0.12)] ring-1 ring-[rgba(0,120,212,0.28)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+                  )}
                 >
                   {link.label}
                 </Link>
@@ -140,7 +189,12 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] transition-all duration-150 focus-ring"
+                  className={cn(
+                    'px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 focus-ring',
+                    isActive(link)
+                      ? 'text-azure-500 bg-[rgba(0,120,212,0.1)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)]'
+                  )}
                 >
                   {link.label}
                 </Link>

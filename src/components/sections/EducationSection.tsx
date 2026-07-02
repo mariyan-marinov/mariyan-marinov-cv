@@ -41,11 +41,11 @@ export function EducationSection() {
                       <p className="text-sm text-azure-500 font-medium">{edu.degree}</p>
                       <p className="text-sm text-[var(--text-secondary)]">{edu.field}</p>
                     </div>
-                    <div className="text-right flex-shrink-0">
+                    <div className="flex sm:flex-col sm:items-end items-center gap-2 sm:gap-0 flex-shrink-0">
                       <span className="text-xs font-semibold text-[var(--text-secondary)] glass px-3 py-1 rounded-full whitespace-nowrap">
                         {edu.period}
                       </span>
-                      <p className="text-xs text-[var(--text-muted)] mt-1">{edu.location}</p>
+                      <p className="text-xs text-[var(--text-muted)] sm:mt-1">{edu.location}</p>
                     </div>
                   </div>
                   {edu.description && (
