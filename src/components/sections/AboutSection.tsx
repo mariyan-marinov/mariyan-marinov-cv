@@ -59,11 +59,10 @@ export function AboutSection() {
                   delay: shouldReduce ? 0 : 0.2 + i * 0.07,
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
-                className="rounded-full px-4 py-2 text-sm font-medium cursor-default transition-all duration-200"
+                className="glass rounded-full px-4 py-2 text-sm font-medium cursor-default transition-all duration-200"
                 style={{
                   color: 'var(--text-secondary)',
-                  background: 'var(--bg-surface-hover)',
-                  border: '1px solid rgba(255,255,255,0.12)',
+                  border: '1px solid var(--border-color)',
                 }}
                 whileHover={
                   shouldReduce

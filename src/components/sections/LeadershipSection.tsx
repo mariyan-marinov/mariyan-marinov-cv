@@ -17,37 +17,37 @@ const cards: LeadershipCard[] = [
     icon: Search,
     title: 'Architecture Reviews',
     description:
-      'Evaluating system designs and technical proposals to ensure scalability, maintainability, and strategic alignment.',
+      'Led architecture and development strategy at Momentus Technologies, reviewing system designs across multiple feature squads and driving modernisation from Aurelia to Angular.',
   },
   {
     icon: PenTool,
     title: 'Solution Design',
     description:
-      'Defining technical blueprints that translate business requirements into robust, cloud-native architectures.',
+      'Owned end-to-end solution design on Fugro\'s road intelligence platform — from geo-data pipelines and PostGIS queries to AWS deployment and auth0 integration.',
   },
   {
     icon: Users,
     title: 'Team Mentoring',
     description:
-      'Growing engineering talent through structured mentorship, code review culture, and knowledge sharing.',
+      'Supervised and mentored engineers at Momentus and Fugro, conducting code reviews, setting quality standards, and supporting junior developers through full project lifecycles.',
   },
   {
     icon: Shield,
     title: 'Code Quality Governance',
     description:
-      'Establishing and enforcing engineering standards, automated quality gates, and best practices.',
+      'Established engineering standards, code review processes, and CI/CD pipelines with GitHub Actions across multiple contract engagements through Sharp IT Ltd.',
   },
   {
     icon: RefreshCw,
     title: 'Modernization Strategies',
     description:
-      'Guiding legacy system modernization — from monoliths to microservices, and on-premise to cloud.',
+      'Delivered legacy modernisation across client engagements — including FinTech grants systems at Sirma, data migration from MSSQL to AWS S3 for PCG.io, and frontend rewrites at Momentus.',
   },
   {
     icon: Zap,
     title: 'AI-Assisted Engineering',
     description:
-      'Driving adoption of AI-augmented development workflows to accelerate team velocity and code quality.',
+      'Drove GitHub Copilot Agents adoption at Momentus Technologies and Fugro, integrating AI into daily engineering workflows to accelerate velocity and improve code quality.',
   },
 ]
 

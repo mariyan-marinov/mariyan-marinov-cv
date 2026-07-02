@@ -50,7 +50,7 @@ export default function ContactPage() {
         <AnimatedSection className="mb-16">
           <SectionHeading
             eyebrow="Contact"
-            title="Let's Build Something Great"
+            title="Let's Build Something Great!"
             subtitle={profile.availability}
           />
         </AnimatedSection>

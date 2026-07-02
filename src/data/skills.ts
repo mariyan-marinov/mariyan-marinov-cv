@@ -32,7 +32,7 @@ export const skillCategories: SkillCategory[] = [
     label: 'Frontend',
     icon: '⚛️',
     skills: [
-      'Angular (2+)',
+      'Angular',
       'React',
       'Aurelia',
       'TypeScript',

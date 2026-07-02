@@ -1,11 +1,25 @@
 'use client'
 
+import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { GlassCard } from '@/components/ui/GlassCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { profile } from '@/data/profile'
 
+const focusAreas = [
+  'Enterprise Architecture',
+  'Distributed Systems',
+  'Cloud Platforms',
+  'AI-Augmented Development',
+  'Technical Leadership',
+  'Software Modernization',
+]
+
 export function SummarySection() {
+  const badgesRef = useRef(null)
+  const badgesInView = useInView(badgesRef, { once: true, margin: '-40px 0px' })
+  const shouldReduce = useReducedMotion()
+
   return (
     <section
       id="about"
@@ -13,59 +27,64 @@ export function SummarySection() {
       aria-labelledby="summary-heading"
     >
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Text side */}
-          <AnimatedSection direction="left">
-            <SectionHeading
-              eyebrow="About"
-              title="Professional Summary"
-              id="summary-heading"
-            />
-            <div className="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-              {profile.summary.split('\n\n').map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
+        <AnimatedSection direction="up">
+          <SectionHeading
+            eyebrow="About"
+            title="Professional Summary"
+            id="summary-heading"
+          />
+          <div className="max-w-3xl mx-auto space-y-4 text-[var(--text-secondary)] leading-relaxed text-center">
+            {profile.summary.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
 
-            {/* Location / availability */}
-            <div className="mt-8 flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                {profile.location}
-              </div>
-              <div className="flex items-center gap-2 text-sm text-azure-500 font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-                Open to opportunities
-              </div>
+          {/* Location / availability */}
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+        
+            <div className="flex items-center gap-2 text-sm text-azure-500 font-medium">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+              {profile.availability}
             </div>
-          </AnimatedSection>
+          </div>
+        </AnimatedSection>
 
-          {/* Stats side */}
-          <AnimatedSection direction="right" delay={0.15}>
-            <div className="grid grid-cols-2 gap-4">
-              {profile.stats.map((stat, i) => (
-                <GlassCard
-                  key={stat.label}
-                  hover
-                  className="flex flex-col items-center justify-center text-center py-8"
-                >
-                  <span
-                    className="text-4xl md:text-5xl font-extrabold gradient-text mb-2"
-                    aria-label={`${stat.value} ${stat.label}`}
-                  >
-                    {stat.value}
-                  </span>
-                  <span className="text-sm font-medium text-[var(--text-secondary)]">
-                    {stat.label}
-                  </span>
-                </GlassCard>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
+        {/* Focus area badges */}
+        <motion.div
+          ref={badgesRef}
+          className="flex flex-wrap justify-center gap-3 mt-12 pt-10 border-t"
+          style={{ borderColor: 'var(--border-color)' }}
+        >
+          {focusAreas.map((area, i) => (
+            <motion.span
+              key={area}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={badgesInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: shouldReduce ? 0.1 : 0.4,
+                delay: shouldReduce ? 0 : 0.1 + i * 0.07,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="rounded-full px-4 py-2 text-sm font-medium cursor-default transition-all duration-200"
+              style={{
+                color: 'var(--text-secondary)',
+                background: 'var(--bg-surface-hover)',
+                border: '1px solid rgba(255,255,255,0.12)',
+              }}
+              whileHover={
+                shouldReduce
+                  ? {}
+                  : {
+                      borderColor: 'rgba(0,120,212,0.5)',
+                      color: 'var(--accent-blue)',
+                      backgroundColor: 'rgba(0,120,212,0.08)',
+                    }
+              }
+            >
+              {area}
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

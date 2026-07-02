@@ -22,7 +22,7 @@ export function LanguagesSection() {
           />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {languages.map((lang, i) => (
             <AnimatedSection key={lang.name} delay={i * 0.1}>
               <GlassCard>

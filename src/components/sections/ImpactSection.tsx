@@ -11,7 +11,7 @@ interface KPI {
 
 const kpis: KPI[] = [
   { value: '14+', label: 'Years Experience', numeric: true },
-  { value: '4+',  label: 'Enterprise Projects', numeric: true },
+  { value: 'Multiple',  label: 'Enterprise Projects', numeric: true },
   { value: 'Global', label: 'Client Base', numeric: false },
   { value: 'Azure & AWS', label: 'Cloud Platforms', numeric: false },
   { value: 'Tech Lead', label: 'Leadership', numeric: false },

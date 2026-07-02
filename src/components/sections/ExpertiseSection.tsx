@@ -2,36 +2,81 @@
 
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { Layers, Cloud, Code2, Zap, LucideIcon } from 'lucide-react'
+import { Layers, Cloud, Code2, Zap, Users, Plug, LucideIcon } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
 interface Domain {
   icon: LucideIcon
   title: string
+  description: string
   skills: string[]
 }
 
 const domains: Domain[] = [
   {
     icon: Layers,
-    title: 'Architecture',
-    skills: ['Microservices', 'Event-Driven Systems', 'Distributed Platforms', 'Domain Driven Design', 'Modernization'],
+    title: 'Architecture & Backend',
+    description: 'Designing scalable, distributed systems for enterprise workloads — from microservices decomposition and event-driven architectures to full end-to-end .NET delivery.',
+    skills: [
+      'C# / .NET Core', 'ASP.NET Core', 'WebApi / REST',
+      'Microservices', 'Event-Driven Systems', 'MQTT v5',
+      'RabbitMQ / MassTransit', 'Entity Framework', 'Dapper',
+      'SOLID', 'Domain-Driven Design',
+    ],
   },
   {
     icon: Cloud,
-    title: 'Cloud',
-    skills: ['Azure', 'AWS', 'Serverless', 'IaC', 'DevOps'],
+    title: 'Cloud & DevOps',
+    description: 'Azure & AWS cloud-native solutions, containerised workloads, serverless functions, infrastructure as code, and automated CI/CD pipelines.',
+    skills: [
+      'Microsoft Azure', 'AWS (S3, Lambda, ECS, ECR)',
+      'Azure Functions / App Service', 'AWS CDK / DMS',
+      'MS Graph', 'Auth0', 'Docker', 'GitHub Actions',
+      'CI/CD Pipelines', 'Infrastructure as Code',
+    ],
   },
   {
     icon: Code2,
-    title: 'Development',
-    skills: ['.NET', 'ASP.NET Core', 'Angular', 'React', 'SQL Server', 'PostgreSQL'],
+    title: 'Frontend & Data',
+    description: 'Full-stack delivery across Angular, React and Aurelia frontends paired with relational and geospatial data stores — including real-time time-series and geo-analytics workloads.',
+    skills: [
+      'Angular', 'React', 'TypeScript', 'Aurelia',
+      'KnockoutJS', 'Bootstrap', 'SQL Server / T-SQL',
+      'PostgreSQL / PostGIS', 'TimescaleDB', 'GeoJSON / ArcGIS',
+      'Cassandra Keyspaces',
+    ],
   },
   {
     icon: Zap,
     title: 'AI Engineering',
-    skills: ['GitHub Copilot', 'AI-assisted Engineering', 'Agentic Workflows', 'Developer Productivity'],
+    description: 'Integrating AI tooling and agentic workflows into software delivery pipelines — accelerating development velocity, code quality, and engineering throughput.',
+    skills: [
+      'GitHub Copilot Agents', 'AI-Assisted Delivery',
+      'Agentic Workflows', 'Prompt Engineering',
+       'Developer Productivity',
+    ],
+  },
+  {
+    icon: Users,
+    title: 'Technical Leadership',
+    description: 'Leading cross-functional engineering teams, defining technical roadmaps, mentoring engineers, and driving code quality culture — from squad lead to principal engineer.',
+    skills: [
+      'Architecture Reviews', 'Solution Design',
+      'Team Mentoring', 'Code Reviews',
+      'Engineering Standards', 'Modernization Strategy',
+      'Stakeholder Communication',
+    ],
+  },
+  {
+    icon: Plug,
+    title: 'API & Integration',
+    description: 'RESTful APIs, event-driven integrations, and third-party platform connections at scale — built for performance, security, and developer experience.',
+    skills: [
+      'REST APIs', 'API Gateway', 'OAuth2 / Auth0',
+      'RabbitMQ', 'MassTransit', 'MS Graph',
+      'AWS API Gateway', 'Web Services', 'MQTT',
+    ],
   },
 ]
 
@@ -86,6 +131,11 @@ function DomainCard({ domain, index }: { domain: Domain; index: number }) {
         {domain.title}
       </h3>
 
+      {/* Description */}
+      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+        {domain.description}
+      </p>
+
       {/* Skills */}
       <div className="flex flex-wrap gap-2">
         {domain.skills.map((skill) => (
@@ -119,7 +169,7 @@ export function ExpertiseSection() {
           <SectionHeading eyebrow="Expertise" title="Core Technical Domains" />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {domains.map((domain, i) => (
             <div key={domain.title} className="relative">
               <DomainCard domain={domain} index={i} />
