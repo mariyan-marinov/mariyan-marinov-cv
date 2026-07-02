@@ -22,7 +22,7 @@ I care about making the right technical decisions early, reducing complexity whe
   },
   availability:
     'Open to the right projects — great teams, hard problems, real impact.',
-  cvFile: '/cv/mariyan-marinov-cv.docx',
+  cvFile: '/cv/Mariyan_Marinov__CV.docx',
   heroChips: [
     '14+ Years',
     '.NET / C#',

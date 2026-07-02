@@ -17,7 +17,7 @@ const contactItems = [
     label: 'Email',
     value: profile.contact.email,
     href: `mailto:${profile.contact.email}`,
-    description: 'Best way to reach me. I respond within 24 hours.',
+    description: 'Best way to reach me. I respond within an hour.',
   },
   {
     icon: '💼',
