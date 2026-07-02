@@ -3,6 +3,7 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { profile } from '@/data/profile'
+import { assetPath } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -37,7 +38,7 @@ const contactItems = [
   {
     icon: '📍',
     label: 'Location',
-    value: profile.location,
+    value: 'Ruse, Bulgaria',
     href: undefined,
     description: 'Available for remote work globally.',
   },
@@ -136,7 +137,7 @@ export default function ContactPage() {
                 Send Email
               </a>
               <a
-                href={profile.cvFile}
+                href={assetPath(profile.cvFile)}
                 download
                 className="btn-ghost"
                 aria-label="Download CV as DOCX"

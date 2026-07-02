@@ -4,6 +4,7 @@ import { AnimatedSection, AnimatedList, itemVariants } from '@/components/ui/Ani
 import { GlassCard } from '@/components/ui/GlassCard'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { certifications } from '@/data/certifications'
+import { assetPath } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { Award } from 'lucide-react'
 
@@ -97,7 +98,7 @@ export function CertificationsSection() {
                           // Landscape certificate image (HackerRank)
                           <div className="w-full overflow-hidden rounded-lg" style={{ background: 'rgba(0,0,0,0.15)' }}>
                             <img
-                              src={cert.imageUrl}
+                              src={assetPath(cert.imageUrl)}
                               alt={`${cert.name} certificate`}
                               className="w-full h-auto object-contain"
                               style={{ maxHeight: '120px', objectFit: 'cover', objectPosition: 'top' }}
@@ -107,7 +108,7 @@ export function CertificationsSection() {
                           // Square badge image (Credly, bcert)
                           <div className="flex justify-center pt-1">
                             <img
-                              src={cert.imageUrl}
+                              src={assetPath(cert.imageUrl)}
                               alt={`${cert.name} badge`}
                               width={80}
                               height={80}

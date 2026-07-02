@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { profile } from '@/data/profile'
-import { cn } from '@/lib/utils'
+import { cn, assetPath } from '@/lib/utils'
 
 const navLinks = [
   { href: '/#about',       label: 'About' },
@@ -80,7 +80,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <a
-              href={profile.cvFile}
+              href={assetPath(profile.cvFile)}
               download
               className="hidden sm:flex btn-primary text-xs px-4 py-2"
               aria-label="Download CV as DOCX"
@@ -146,7 +146,7 @@ export function Header() {
                 </Link>
               ))}
               <a
-                href={profile.cvFile}
+                href={assetPath(profile.cvFile)}
                 download
                 className="btn-primary mt-2 justify-center text-xs"
                 onClick={() => setMobileOpen(false)}

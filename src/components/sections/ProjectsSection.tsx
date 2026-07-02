@@ -5,6 +5,7 @@ import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { projects, Project } from '@/data/projects'
+import { assetPath } from '@/lib/utils'
 
 const categoryStyles: Record<Project['category'], { label: string; bg: string; color: string }> = {
   enterprise:     { label: 'Enterprise',     bg: 'rgba(0,120,212,0.15)',   color: '#50e6ff' },
@@ -45,7 +46,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <div className="flex items-center gap-2">
         {project.clientLogo && (
           <img
-            src={project.clientLogo}
+            src={assetPath(project.clientLogo)}
             alt=""
             className="w-5 h-5 object-contain flex-shrink-0"
             aria-hidden="true"

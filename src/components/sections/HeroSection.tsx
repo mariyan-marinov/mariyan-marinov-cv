@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import { profile } from '@/data/profile'
+import { assetPath } from '@/lib/utils'
 
 const chipVariants = {
   hidden: { opacity: 0, scale: 0.8, y: 20 },
@@ -118,7 +119,7 @@ export function HeroSection() {
             </svg>
           </a>
           <a
-            href={profile.cvFile}
+            href={assetPath(profile.cvFile)}
             download
             className="btn-ghost"
             aria-label="Download CV as DOCX"

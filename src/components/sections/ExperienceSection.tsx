@@ -5,6 +5,7 @@ import { AnimatedSection, AnimatedList, itemVariants } from '@/components/ui/Ani
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Badge } from '@/components/ui/Badge'
 import { experience } from '@/data/experience'
+import { assetPath } from '@/lib/utils'
 
 export function ExperienceSection() {
   return (
@@ -48,7 +49,7 @@ export function ExperienceSection() {
                   aria-hidden="true"
                 >
                   {job.logo ? (
-                    <img src={job.logo} alt="" className="w-6 h-6 object-contain" />
+                    <img src={assetPath(job.logo)} alt="" className="w-6 h-6 object-contain" />
                   ) : (
                     <span className="text-xs font-bold text-white">{job.company.slice(0, 2).toUpperCase()}</span>
                   )}
