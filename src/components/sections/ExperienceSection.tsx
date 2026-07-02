@@ -41,13 +41,17 @@ export function ExperienceSection() {
                 role="listitem"
                 className="relative sm:pl-16"
               >
-                {/* Timeline dot */}
+                {/* Timeline dot / logo */}
                 <div
-                  className="hidden sm:flex absolute left-0 top-6 w-10 h-10 rounded-full items-center justify-center text-xs font-bold text-white flex-shrink-0 z-10"
-                  style={{ background: i === 0 ? 'linear-gradient(135deg, #0078d4, #50e6ff)' : 'rgba(0,120,212,0.2)', border: '2px solid rgba(0,120,212,0.4)' }}
+                  className="hidden sm:flex absolute left-0 top-6 w-10 h-10 rounded-full items-center justify-center flex-shrink-0 z-10 overflow-hidden"
+                  style={{ background: i === 0 ? 'linear-gradient(135deg, #0078d4, #50e6ff)' : 'rgba(0,120,212,0.15)', border: '2px solid rgba(0,120,212,0.4)' }}
                   aria-hidden="true"
                 >
-                  {job.company.slice(0, 2).toUpperCase()}
+                  {job.logo ? (
+                    <img src={job.logo} alt="" className="w-6 h-6 object-contain" />
+                  ) : (
+                    <span className="text-xs font-bold text-white">{job.company.slice(0, 2).toUpperCase()}</span>
+                  )}
                 </div>
 
                 {/* Card */}
@@ -60,7 +64,19 @@ export function ExperienceSection() {
                         {job.role}
                       </h3>
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1">
-                        <span className="text-sm font-semibold text-azure-500">{job.company}</span>
+                        {job.url ? (
+                          <a
+                            href={job.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-semibold text-azure-500 hover:text-azure-400 transition-colors inline-flex items-center gap-1"
+                          >
+                            {job.company}
+                            <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                          </a>
+                        ) : (
+                          <span className="text-sm font-semibold text-azure-500">{job.company}</span>
+                        )}
                         <span className="text-[var(--text-muted)] text-xs" aria-hidden="true">·</span>
                         <span className="text-sm text-[var(--text-muted)]">{job.location}</span>
                       </div>

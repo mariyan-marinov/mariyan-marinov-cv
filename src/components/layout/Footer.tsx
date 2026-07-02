@@ -9,7 +9,7 @@ export function Footer() {
       className="border-t border-[var(--border-color)] py-10 px-4 sm:px-6 lg:px-8"
       aria-label="Site footer"
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-[var(--text-muted)]">
           <span className="font-semibold text-[var(--text-secondary)]">Mariyan Marinov</span>
           <span className="hidden sm:inline">·</span>

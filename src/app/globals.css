@@ -29,8 +29,8 @@
   --bg-surface-hover: rgba(255, 255, 255, 0.07);
   --border-color: rgba(255, 255, 255, 0.08);
   --text-primary: #f0f6fc;
-  --text-secondary: #8b949e;
-  --text-muted: #6e7681;
+  --text-secondary: #adbac7;
+  --text-muted: #8b949e;
   --accent-blue: #0078d4;
   --accent-cyan: #50e6ff;
   --shadow-glass: 0 4px 16px rgba(0,0,0,0.3);
@@ -101,11 +101,11 @@ body {
   }
 
   .container-wide {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-[1280px] mx-auto;
   }
 
   .container-narrow {
-    @apply max-w-5xl mx-auto;
+    @apply max-w-[1280px] mx-auto;
   }
 
   .focus-ring {
@@ -176,8 +176,8 @@ body {
   .skill-badge {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
            transition-all duration-200 cursor-default;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background: var(--bg-surface-hover);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--text-secondary);
   }
   .skill-badge:hover {

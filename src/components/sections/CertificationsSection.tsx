@@ -91,18 +91,43 @@ export function CertificationsSection() {
                 {items.map((cert) => (
                   <motion.div key={cert.id} variants={itemVariants}>
                     <GlassCard hover glow className="h-full flex flex-col gap-3">
-                      {/* Badge */}
-                      <div
-                        className="h-10 px-3 min-w-[3rem] w-fit rounded-xl flex items-center justify-center text-xs font-bold flex-shrink-0 whitespace-nowrap"
-                        style={{
-                          background: issuerColors[cert.issuer] ?? 'rgba(0,120,212,0.1)',
-                          border: `1px solid ${issuerBorders[cert.issuer] ?? 'rgba(0,120,212,0.2)'}`,
-                          color: issuerTextColors[cert.issuer] ?? '#0078d4',
-                        }}
-                        aria-hidden="true"
-                      >
-                        {cert.badge}
-                      </div>
+                      {/* Thumbnail or text badge */}
+                      {cert.imageUrl ? (
+                        cert.imageUrl.startsWith('/certs/') ? (
+                          // Landscape certificate image (HackerRank)
+                          <div className="w-full overflow-hidden rounded-lg" style={{ background: 'rgba(0,0,0,0.15)' }}>
+                            <img
+                              src={cert.imageUrl}
+                              alt={`${cert.name} certificate`}
+                              className="w-full h-auto object-contain"
+                              style={{ maxHeight: '120px', objectFit: 'cover', objectPosition: 'top' }}
+                            />
+                          </div>
+                        ) : (
+                          // Square badge image (Credly, bcert)
+                          <div className="flex justify-center pt-1">
+                            <img
+                              src={cert.imageUrl}
+                              alt={`${cert.name} badge`}
+                              width={80}
+                              height={80}
+                              className="object-contain drop-shadow-md"
+                            />
+                          </div>
+                        )
+                      ) : (
+                        <div
+                          className="h-10 px-3 min-w-[3rem] w-fit rounded-xl flex items-center justify-center text-xs font-bold flex-shrink-0 whitespace-nowrap"
+                          style={{
+                            background: issuerColors[cert.issuer] ?? 'rgba(0,120,212,0.1)',
+                            border: `1px solid ${issuerBorders[cert.issuer] ?? 'rgba(0,120,212,0.2)'}`,
+                            color: issuerTextColors[cert.issuer] ?? '#0078d4',
+                          }}
+                          aria-hidden="true"
+                        >
+                          {cert.badge}
+                        </div>
+                      )}
 
                       <div className="flex-1">
                         <h4 className="text-sm font-semibold text-[var(--text-primary)] leading-snug mb-1">

@@ -37,7 +37,7 @@ export function Header() {
           : 'bg-transparent'
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
@@ -52,7 +52,7 @@ export function Header() {
             >
               MM
             </div>
-            <span className="hidden sm:block font-semibold text-sm text-[var(--text-primary)] group-hover:text-azure-500 transition-colors">
+            <span className="hidden sm:block font-semibold text-base text-[var(--text-primary)] group-hover:text-azure-500 transition-colors">
               Mariyan Marinov
             </span>
           </Link>
@@ -68,7 +68,7 @@ export function Header() {
               >
                 <Link
                   href={link.href}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] transition-all duration-150 focus-ring"
+                  className="px-3 py-2 rounded-lg text-base font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] transition-all duration-150 focus-ring"
                 >
                   {link.label}
                 </Link>

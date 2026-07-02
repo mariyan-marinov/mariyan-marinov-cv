@@ -18,7 +18,7 @@ Deep expertise in .NET (C# / ASP.NET Core), full-stack TypeScript/Angular/React,
     linkedin: 'https://www.linkedin.com/in/mariyanmarinov',
     github: 'https://github.com/mariyan-marinov',
   },
-  location: 'Sofia, Bulgaria',
+  location: 'Ruse, Bulgaria',
   availability:
     'Open to the right projects — great teams, hard problems, real impact.',
   cvFile: '/cv/mariyan-marinov-cv.docx',

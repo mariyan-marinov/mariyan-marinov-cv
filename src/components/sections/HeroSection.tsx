@@ -57,7 +57,7 @@ export function HeroSection() {
         </>
       )}
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
         {/* Status chip */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
@@ -149,7 +149,11 @@ export function HeroSection() {
               variants={chipVariants}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold glass border border-[var(--border-color)] text-[var(--text-secondary)] hover:border-azure-500/50 hover:text-azure-400 transition-colors cursor-default"
+              className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold border text-[var(--text-secondary)] hover:border-azure-500/50 hover:text-azure-400 transition-colors cursor-default"
+              style={{
+                background: 'var(--bg-surface-hover)',
+                borderColor: 'rgba(255,255,255,0.12)',
+              }}
             >
               {chip}
             </motion.span>

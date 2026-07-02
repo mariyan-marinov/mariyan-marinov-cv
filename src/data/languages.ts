@@ -12,7 +12,12 @@ export const languages: Language[] = [
   },
   {
     name: 'English',
-    level: 'Professional Proficiency (C1)',
+    level: 'Working Proficiency',
     proficiency: 85,
+  },
+  {
+    name: 'German',
+    level: 'Entry Level',
+    proficiency: 20,
   },
 ]

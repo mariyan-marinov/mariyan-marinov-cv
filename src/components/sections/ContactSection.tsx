@@ -55,7 +55,7 @@ export function ContactSection() {
         <AnimatedSection className="text-center mb-12">
           <SectionHeading
             eyebrow="Contact"
-            title="Let's Build Something Great"
+            title="Let's Build Something Great!"
             subtitle={profile.availability}
             centered
             id="contact-heading"

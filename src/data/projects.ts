@@ -1,6 +1,8 @@
 export interface Project {
   id: string
   client: string
+  clientUrl?: string
+  clientLogo?: string
   name: string
   description: string
   highlights: string[]
@@ -12,32 +14,67 @@ export const projects: Project[] = [
   {
     id: 'kpmg',
     client: 'KPMG',
+    clientUrl: 'https://kpmg.com/',
+    clientLogo: '/logos/kpmg.png',
     name: 'Audit Engagement Management Platform',
     description:
-      'Enterprise-grade platform for managing the full lifecycle of audit engagements — from planning and fieldwork through to reporting and sign-off — for one of the Big Four professional services firms.',
+      'Enterprise platform used to support and streamline the full audit lifecycle, including workflow orchestration, approval processes, compliance tracking, reporting, role-based access control, audit traceability, and business process management in a highly regulated environment.',
     highlights: [
       'Workflow orchestration for complex audit lifecycles',
       'Compliance tracking and regulatory reporting',
-      'Enterprise-scale reporting systems',
-      'Distributed microservices architecture',
+      'Role-based access control and audit traceability',
+      'Modernisation of large-scale distributed platform',
     ],
-    technologies: ['.NET', 'React', 'MS Graph', 'RabbitMQ', 'MassTransit', 'Azure'],
+    technologies: ['.NET', 'Azure', 'MS Graph', 'RabbitMQ', 'MassTransit'],
     category: 'enterprise',
   },
   {
     id: 'fugro',
     client: 'Fugro',
+    clientUrl: 'https://www.fugro.com/',
+    clientLogo: '/logos/fugro.png',
     name: 'Road Intelligence Platform',
     description:
-      'Geospatial analytics platform processing road surface data collected from survey vehicles to deliver infrastructure intelligence and asset management insights for governments and infrastructure operators.',
+      'Analysis and reporting of road condition based on processed images of road pavement and road-surrounding objects. E2E development focused on architecture and AI-assisted delivery, including working with geo data.',
     highlights: [
-      'GIS analytics and geospatial data processing',
-      'Geo processing pipelines at scale',
-      'Infrastructure intelligence reporting',
-      'Road condition and asset management',
+      'E2E development with architecture ownership and AI-assisted delivery',
+      'Geospatial data processing with PostGIS, GeoJSON, ArcGIS, and shapefiles',
+      'Supervised and mentored engineers; led feature ownership and code reviews',
+      'Deployed on AWS (S3, ECR, ECS, API Gateway, Route53) with auth0 and GitHub Actions',
     ],
-    technologies: ['Angular', '.NET', 'AWS', 'PostgreSQL', 'PostGIS', 'ArcGIS'],
+    technologies: ['Angular', '.NET Core', 'Dapper', 'PostgreSQL', 'PostGIS', 'AWS', 'Auth0', 'ArcGIS', 'GeoJSON', 'GitHub Copilot Agents'],
     category: 'infrastructure',
+  },
+  {
+    id: 'fugro-pit',
+    client: 'Fugro / RWE',
+    clientUrl: 'https://www.fugro.com/',
+    clientLogo: '/logos/fugro.png',
+    name: 'Pile Installation Tracking (Offshore Wind)',
+    description:
+      'Real-time offshore monopile driving monitoring platform for offshore wind turbine installation. Fuses multi-sensor data streams to track pile kinematics, detect safety events, and deliver live dashboards to both vessel and shore operators.',
+    highlights: [
+      'Event-driven architecture distributed across vessel and onshore environments',
+      'Multi-sensor data fusion with standalone dockerized calculators subscribing to MQTT broker',
+      'Vessel-to-shore replication via Mosquitto broker bridge over Starlink',
+      'PIT application layer handling persistence, visualisation, and configuration',
+    ],
+    technologies: ['.NET 10', 'MQTT v5', 'Mosquitto', 'TimescaleDB', 'Docker'],
+    category: 'infrastructure',
+  },
+  {
+    id: 'pcg-cookie',
+    client: 'pcg.io',
+    name: 'Cookie Consent Manager',
+    description:
+      'Application to configure cookie preferences and design cookie consent popups for websites. Includes a popup designer and consent management features.',
+    highlights: [
+      'Cookie consent popup designer with configurable options',
+      'Serverless architecture with AWS Lambda',
+      'Cassandra Keyspaces for scalable consent storage',
+    ],
+    technologies: ['React', 'NodeJS', 'AWS Lambda', 'Cassandra Keyspaces', 'AWS S3'],
+    category: 'platform',
   },
   {
     id: 'microsoft',
@@ -57,6 +94,8 @@ export const projects: Project[] = [
   {
     id: 'momentus-platform',
     client: 'Momentus Technologies',
+    clientUrl: 'https://gomomentus.com/',
+    clientLogo: '/logos/momentus.png',
     name: 'Venue and Event Management Platform',
     description:
       'Global SaaS platform for venue and event management used by enterprise clients worldwide — managing bookings, CRM, event operations, and financial workflows across complex multi-venue organisations.',

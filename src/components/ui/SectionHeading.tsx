@@ -14,7 +14,7 @@ export function SectionHeading({
   title,
   subtitle,
   className,
-  centered = false,
+  centered = true,
   id,
 }: SectionHeadingProps) {
   return (
@@ -28,7 +28,7 @@ export function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base md:text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed">
+        <p className="mt-4 text-base md:text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed mx-auto">
           {subtitle}
         </p>
       )}
