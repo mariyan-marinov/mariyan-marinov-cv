@@ -108,7 +108,7 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <a
-            href="/#experience"
+            href={assetPath('/#experience')}
             className="btn-primary"
             aria-label="View professional experience"
           >
