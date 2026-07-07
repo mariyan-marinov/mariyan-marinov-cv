@@ -46,6 +46,10 @@ export function SummarySection() {
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
               {profile.availability}
             </div>
+            <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+              <span aria-hidden="true">🎓</span>
+              MSc Computer Science · University of Ruse · Bulgaria
+            </div>
           </div>
         </AnimatedSection>
 

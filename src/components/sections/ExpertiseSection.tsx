@@ -166,7 +166,11 @@ export function ExpertiseSection() {
     <section id="expertise" className="section-padding">
       <div className="container-narrow">
         <AnimatedSection direction="up">
-          <SectionHeading eyebrow="Expertise" title="Core Technical Domains" />
+          <SectionHeading
+            eyebrow="Skills & Expertise"
+            title="What I Work With"
+            subtitle="From architecture and cloud platforms to AI engineering and technical leadership — the full stack of what I bring to a project."
+          />
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

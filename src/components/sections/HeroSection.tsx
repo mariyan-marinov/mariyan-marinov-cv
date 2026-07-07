@@ -108,11 +108,11 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <a
-            href={assetPath('/#experience')}
+            href={assetPath('/#projects')}
             className="btn-primary"
-            aria-label="View professional experience"
+            aria-label="View my work and projects"
           >
-            View Experience
+            View My Work
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />

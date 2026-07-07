@@ -32,5 +32,7 @@ I care about making the right technical decisions early, reducing complexity whe
     'React',
     'AI Engineering',
     'Tech Lead',
+    'Bulgarian · Native',
+    'English · C1',
   ],
 }
