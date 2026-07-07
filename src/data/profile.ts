@@ -23,6 +23,8 @@ I care about making the right technical decisions early, reducing complexity whe
   availability:
     'Open to the right projects — great teams, hard problems, real impact.',
   cvFile: '/cv/Mariyan_Marinov__CV.docx',
+  /** Set to a public-folder path (e.g. '/photo.jpg') to show a real photo on the About page. Empty = initials avatar. */
+  photo: '/mm profile biz.jpg',
   heroChips: [
     '14+ Years',
     '.NET / C#',

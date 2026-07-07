@@ -9,7 +9,7 @@ import { profile } from '@/data/profile'
 import { cn, assetPath } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/#about',       label: 'About',      sectionId: 'about' },
+  { href: '/about',        label: 'About',      sectionId: 'about' },
   { href: '/#expertise',   label: 'Expertise',  sectionId: 'expertise' },
   { href: '/#projects',    label: 'Projects',   sectionId: 'projects' },
   { href: '/#experience',  label: 'Experience', sectionId: 'experience' },
@@ -66,6 +66,7 @@ export function Header() {
 
   const isActive = (link: typeof navLinks[0]) => {
     if (pathname === '/contact') return link.href === '/contact'
+    if (pathname === '/about') return link.href === '/about'
     return activeSection === link.sectionId
   }
 
@@ -83,23 +84,33 @@ export function Header() {
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 group focus-ring rounded-lg px-1"
-            aria-label="Mariyan Marinov — Home"
-          >
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg, #0078d4, #50e6ff)' }}
-              aria-hidden="true"
+          {/* Logo + open-to-work badge */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="flex items-center gap-3 group focus-ring rounded-lg px-1"
+              aria-label="Mariyan Marinov — Home"
             >
-              MM
-            </div>
-            <span className="hidden sm:block font-semibold text-base text-[var(--text-primary)] group-hover:text-azure-500 transition-colors">
-              Mariyan Marinov
+              <div
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                style={{ background: 'linear-gradient(135deg, #0078d4, #50e6ff)' }}
+                aria-hidden="true"
+              >
+                MM
+              </div>
+              <span className="hidden sm:block font-semibold text-base text-[var(--text-primary)] group-hover:text-azure-500 transition-colors">
+                Mariyan Marinov
+              </span>
+            </Link>
+            <span
+              className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold select-none"
+              style={{ background: 'rgba(34,197,94,0.12)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.25)' }}
+              aria-label="Currently open to work"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+              Open to work
             </span>
-          </Link>
+          </div>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Primary navigation">
@@ -113,13 +124,21 @@ export function Header() {
                 <Link
                   href={link.href}
                   className={cn(
-                    'px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 focus-ring',
+                    'relative px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus-ring',
                     isActive(link)
-                      ? 'text-[var(--text-primary)] bg-[rgba(0,120,212,0.12)] ring-1 ring-[rgba(0,120,212,0.28)]'
+                      ? 'text-azure-500'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
                   )}
                 >
                   {link.label}
+                  {isActive(link) && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0.5 left-2 right-2 h-0.5 rounded-full"
+                      style={{ background: 'linear-gradient(90deg, #0078d4, #50e6ff)' }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                    />
+                  )}
                 </Link>
               </motion.div>
             ))}
